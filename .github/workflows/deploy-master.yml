@@ -30,19 +30,19 @@ jobs:
               start: ""
               env:
                 - name: KAKAO_CLIENT_ID
-                  value: ${{ SECRETS.KAKAO_CLIENT_ID }}
+                  value: ${{ secrets.KAKAO_CLIENT_ID }}
                 - name: KAKAO_CLIENT_SECRET
-                  value: ${{ SECRETS.KAKAO_CLIENT_SECRET }}
+                  value: ${{ secrets.KAKAO_CLIENT_SECRET }}
                 - name: JWT_ACCESS_KEY
-                  value: ${{ SECRETS.JWT_ACCESS_KEY }}
+                  value: ${{ secrets.JWT_ACCESS_KEY }}
                 - name: JWT_ACCESS_EXPIRE
-                  value: ${{ SECRETS.JWT_ACCESS_EXPIRE }}
+                  value: ${{ secrets.JWT_ACCESS_EXPIRE }}
                 - name: DB_USER
-                  value: ${{ SECRETS.DB_USER }}
+                  value: ${{ secrets.DB_USER }}
                 - name: DB_URL
-                  value: ${{ SECRETS.DB_URL }}
+                  value: ${{ secrets.DB_URL }}
                 - name: DB_PASSWORD
-                  value: ${{ SECRETS.DB_PASSWORD }}
+                  value: ${{ secrets.DB_PASSWORD }}
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
