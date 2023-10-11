@@ -2,10 +2,7 @@ package com.ohgimduir.jaray.db.ui;
 
 import com.ohgimduir.jaray.db.application.command.CommandValueService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,7 +14,7 @@ public class ValueController {
     private final CommandValueService commandValueService;
 
     @PostMapping("/{id}")
-    public void create(@PathVariable Long id, List<String> values) {
+    public void create(@PathVariable Long id, @RequestBody List<String> values) {
         commandValueService.create(id, values);
     }
 }
