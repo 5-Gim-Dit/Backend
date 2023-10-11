@@ -1,5 +1,6 @@
 package com.ohgimduir.jaray.db.domain;
 
+import com.ohgimduir.jaray.db.domain.type.ColumnType;
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.*;
@@ -18,10 +19,13 @@ public class Column {
 
     private String name;
 
+    @Enumerated(value =  EnumType.STRING)
+    private ColumnType type;
+
     private Long tableId;
 
     @Builder
-    public Column(String name, Long tableId) {
+    public Column(String name, ColumnType type, Long tableId) {
         this.name = name;
         this.tableId = tableId;
     }

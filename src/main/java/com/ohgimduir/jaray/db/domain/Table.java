@@ -1,6 +1,5 @@
 package com.ohgimduir.jaray.db.domain;
 
-import com.ohgimduir.jaray.db.domain.type.ColumnType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,15 +16,11 @@ public class Table {
 
     private String name;
 
-    @Enumerated(EnumType.STRING)
-    private ColumnType type;
-
     private Long dataBaseId;
 
     @Builder
-    public Table(String name, ColumnType type, Long dataBaseId) {
+    public Table(String name, Long dataBaseId) {
         this.name = name;
-        this.type = type;
         this.dataBaseId = dataBaseId;
     }
 }
