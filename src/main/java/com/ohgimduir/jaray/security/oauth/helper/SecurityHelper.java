@@ -12,4 +12,8 @@ public class SecurityHelper {
         return ((CustomMemberDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getMember();
     }
 
+    public long getMemberId() {
+        return ((CustomMemberDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getMember().getId();
+    }
+
 }

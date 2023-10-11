@@ -2,14 +2,10 @@ package com.ohgimduir.jaray.db.domain;
 
 import com.ohgimduir.jaray.db.domain.type.ColumnType;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-
-import java.util.List;
+import lombok.*;
 
 @Entity
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @jakarta.persistence.Table(name = "tbl_table")

@@ -31,6 +31,10 @@ public class CustomMemberDetails implements UserDetails, OAuth2User {
         return new CustomMemberDetails(member);
     }
 
+    public long getId() {
+        return member.getId();
+    }
+
     @Override
     public String getName() {
         return String.valueOf(member.getSocialId());
