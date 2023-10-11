@@ -1,4 +1,4 @@
-package com.ohgimduir.jaray.db.domain;
+package com.ohgimduir.jaray.db.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,7 +6,6 @@ import lombok.*;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
 @jakarta.persistence.Table(name = "tbl_table")
 public class Table {
 
@@ -23,4 +22,5 @@ public class Table {
         this.name = name;
         this.dataBaseId = dataBaseId;
     }
+
 }

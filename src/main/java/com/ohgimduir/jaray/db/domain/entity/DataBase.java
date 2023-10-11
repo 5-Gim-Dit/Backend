@@ -1,18 +1,18 @@
-package com.ohgimduir.jaray.db.domain;
+package com.ohgimduir.jaray.db.domain.entity;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Column;
+import jakarta.persistence.Table;
 import lombok.*;
 
 @Entity
 @Getter
+@Table(name = "tbl_database")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
 public class DataBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "database_id")
     private Long id;
 
     @Column(unique = true)
