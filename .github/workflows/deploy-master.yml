@@ -1,0 +1,49 @@
+name: Deploy to cloudtype
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Connect deploy key
+        uses: cloudtype-github-actions/connect@v1
+        with:
+          token: ${{ SECRETS.CLOUDTYPE_TOKEN }}
+          ghtoken: ${{ SECRETS.GHP_TOKEN }}
+      - name: Deploy
+        uses: cloudtype-github-actions/deploy@v1
+        with:
+          token: ${{ SECRETS.CLOUDTYPE_TOKEN }}
+          project: jaray-backend/backend
+          stage: main
+          yaml: >
+            name: backend
+
+            app: java@17
+
+            options:
+              ports: 8080
+              start: ""
+              env:
+                - name: KAKAO_CLIENT_ID
+                  value: ${{ SECRETS.KAKAO_CLIENT_ID }}
+                - name: KAKAO_CLIENT_SECRET
+                  value: ${{ SECRETS.KAKAO_CLIENT_SECRET }}
+                - name: JWT_ACCESS_KEY
+                  value: ${{ SECRETS.JWT_ACCESS_KEY }}
+                - name: JWT_ACCESS_EXPIRE
+                  value: ${{ SECRETS.JWT_ACCESS_EXPIRE }}
+                - name: DB_USER
+                  value: ${{ SECRETS.DB_USER }}
+                - name: DB_URL
+                  value: ${{ SECRETS.DB_URL }}
+                - name: DB_PASSWORD
+                  value: ${{ SECRETS.DB_PASSWORD }}
+            context:
+              git:
+                url: git@github.com:${{ github.repository }}.git
+                ref: ${{ github.ref }}
