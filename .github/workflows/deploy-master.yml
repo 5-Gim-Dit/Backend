@@ -12,8 +12,8 @@ jobs:
       - name: Connect deploy key
         uses: cloudtype-github-actions/connect@v1
         with:
-          token: ${{ SECRETS.CLOUDTYPE_TOKEN }}
           ghtoken: ${{ SECRETS.GHP_TOKEN }}
+          token: ${{ SECRETS.CLOUDTYPE_TOKEN }}
       - name: Deploy
         uses: cloudtype-github-actions/deploy@v1
         with:
