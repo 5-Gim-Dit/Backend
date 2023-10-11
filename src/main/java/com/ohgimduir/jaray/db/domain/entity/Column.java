@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.*;
 
+import java.util.Objects;
+
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -13,7 +15,6 @@ public class Column {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//  @jakarta.persistence.Column(name = "column_id")
     private Long id;
 
     private String name;
@@ -25,6 +26,8 @@ public class Column {
 
     @Builder
     public Column(String name, ColumnType type, Long tableId) {
+        Objects.requireNonNull(name, "Name can not be null");
+
         this.name = name;
         this.type = type;
         this.tableId = tableId;

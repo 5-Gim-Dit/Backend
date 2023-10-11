@@ -38,6 +38,7 @@ public class CommandTableService {
         return requests.stream()
                 .map(column -> Column.builder()
                         .name(column.name())
+                        .type(column.type())
                         .tableId(tableId)
                         .build())
                 .toList();

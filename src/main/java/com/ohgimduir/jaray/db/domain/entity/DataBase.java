@@ -5,6 +5,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 import lombok.*;
 
+import java.util.Objects;
+
 @Entity
 @Getter
 @Table(name = "tbl_database")
@@ -22,6 +24,8 @@ public class DataBase {
 
     @Builder(builderClassName = "ExceptIdBuilder", builderMethodName = "ExceptIdBuilder")
     public DataBase(String name, Long memberId) {
+        Objects.requireNonNull(name, "Name can not be null");
+
         this.name = name;
         this.memberId = memberId;
     }
