@@ -21,7 +21,7 @@ jobs:
           project: jaray-backend/backend
           stage: main
           yaml: >
-            name: backend
+            name: jaray-backend
 
             app: java@17
 
