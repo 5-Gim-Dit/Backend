@@ -15,9 +15,9 @@ public class GlobalExceptionHandler {
         return ErrorResponse.of(e.getStatus(), e.getMessage());
     }
 
-    @ExceptionHandler(value = NullPointerException.class)
-    protected ErrorResponse handleNullPointerException(NullPointerException e) {
-        log.error("NullPointerException message : {}", e.getMessage());
+    @ExceptionHandler(value = IllegalArgumentException.class)
+    protected ErrorResponse handleIllegalArgumentException(IllegalArgumentException e) {
+        log.error("IllegalArgumentException message : {}", e.getMessage());
 
         return ErrorResponse.of(500, "Internal Server exception occurred");
     }
