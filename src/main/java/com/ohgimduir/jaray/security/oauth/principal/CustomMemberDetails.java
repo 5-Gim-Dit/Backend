@@ -1,4 +1,4 @@
-package com.ohgimduir.jaray.oauth.principal;
+package com.ohgimduir.jaray.security.oauth.principal;
 
 import com.ohgimduir.jaray.member.domain.Member;
 import lombok.AccessLevel;
@@ -25,6 +25,10 @@ public class CustomMemberDetails implements UserDetails, OAuth2User {
 
     public static CustomMemberDetails create(Member member, Map<String, Object> attributes) {
         return new CustomMemberDetails(member, attributes);
+    }
+
+    public static CustomMemberDetails create(Member member) {
+        return new CustomMemberDetails(member);
     }
 
     @Override

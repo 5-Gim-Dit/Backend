@@ -1,4 +1,4 @@
-package com.ohgimduir.jaray.oauth.dto;
+package com.ohgimduir.jaray.security.oauth.dto;
 
 import com.ohgimduir.jaray.member.domain.LoginType;
 import lombok.RequiredArgsConstructor;

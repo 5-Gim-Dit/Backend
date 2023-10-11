@@ -1,7 +1,7 @@
-package com.ohgimduir.jaray.oauth.helper;
+package com.ohgimduir.jaray.security.oauth.helper;
 
 import com.ohgimduir.jaray.member.domain.Member;
-import com.ohgimduir.jaray.oauth.principal.CustomMemberDetails;
+import com.ohgimduir.jaray.security.oauth.principal.CustomMemberDetails;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 

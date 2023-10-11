@@ -33,6 +33,9 @@ spring:
             user-name-attribute: id
 
 app:
+  jwt:
+    access-key: ${JWT_ACCESS_KEY}
+    access-expire: ${JWT_ACCESS_EXPIRE}
   clova:
     name: ${CLOVA_NAME}
     client-id: ${CLOVA_CLIENT_ID}

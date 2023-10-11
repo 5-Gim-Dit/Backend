@@ -1,11 +1,11 @@
-package com.ohgimduir.jaray.oauth.service;
+package com.ohgimduir.jaray.security.oauth.service;
 
 import com.ohgimduir.jaray.member.domain.LoginType;
 import com.ohgimduir.jaray.member.domain.Member;
 import com.ohgimduir.jaray.member.domain.MemberRepository;
-import com.ohgimduir.jaray.oauth.principal.CustomMemberDetails;
-import com.ohgimduir.jaray.oauth.dto.MemberProfile;
-import com.ohgimduir.jaray.oauth.dto.OAuthAttributes;
+import com.ohgimduir.jaray.security.oauth.principal.CustomMemberDetails;
+import com.ohgimduir.jaray.security.oauth.dto.MemberProfile;
+import com.ohgimduir.jaray.security.oauth.dto.OAuthAttributes;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
