@@ -23,7 +23,7 @@ spring:
               - profile_nickname
               - profile_image
             authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8080/login/oauth2/code/kakao
+            redirect-uri: https://app.cloudtype.io/@jaray-backend/backend:main/jaray-backend/login/oauth2/code/kakao
             client-authentication-method: client_secret_post
         provider:
           kakao:
