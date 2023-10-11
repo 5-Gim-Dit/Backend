@@ -1,16 +1,11 @@
 package com.ohgimduir.jaray.db.domain;
 
-import com.ohgimduir.jaray.member.domain.Member;
 import jakarta.persistence.*;
 import jakarta.persistence.Column;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-
-import java.util.List;
+import lombok.*;
 
 @Entity
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class DataBase {
@@ -20,10 +15,14 @@ public class DataBase {
 //    @Column(name = "database_id")
     private Long id;
 
+    @Column(unique = true)
+    private String name;
+
     private Long memberId;
 
-    @Builder
-    public DataBase(Long memberId) {
+    @Builder(builderClassName = "ExceptIdBuilder", builderMethodName = "ExceptIdBuilder")
+    public DataBase(String name, Long memberId) {
+        this.name = name;
         this.memberId = memberId;
     }
 }
