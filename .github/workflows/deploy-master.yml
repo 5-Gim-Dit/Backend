@@ -21,7 +21,7 @@ jobs:
           project: jaray-backend/backend
           stage: main
           yaml: >
-            name: jaray-backend
+            name: backend
 
             app: java@17
 
@@ -43,6 +43,8 @@ jobs:
                   value: ${{ secrets.DB_URL }}
                 - name: DB_PASSWORD
                   value: ${{ secrets.DB_PASSWORD }}
+                - name: REDIRECT_URL
+                  value: ${{ secrets.REDIRECT_URL }}
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
