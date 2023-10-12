@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @QueryService
 @RequiredArgsConstructor
@@ -69,12 +70,20 @@ public class QueryValueService {
         return response;
     }
 
-    public List<String> getByColumn(long columnId) {
-        Column column = columnRepository.findById(columnId)
-                .orElseThrow();
+    public Map<String, List<String>> getByColumns(List<Long> columnsIds) {
+        Map<String, List<String>> response = new HashMap<>();
 
-        return valueRepository.findByColumnId(column.getId()).stream()
-                .map(Value::getValue)
+        List<Column> columns = columnsIds.stream()
+                .map(id -> columnRepository.findById(id).orElseThrow())
                 .toList();
+
+        for (Column column : columns) {
+            List<String> values = valueRepository.findByColumnId(column.getId()).stream()
+                    .map(Value::getValue)
+                    .toList();
+            response.put(column.getName(), values);
+        }
+
+        return response;
     }
 }

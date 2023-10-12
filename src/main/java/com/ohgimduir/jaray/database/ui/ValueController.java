@@ -36,4 +36,10 @@ public class ValueController {
     public Map<String, List<String>> getByValue(@PathVariable long columnId, @RequestParam(name = "value") String value) {
         return queryValueService.getByValue(columnId, value);
     }
+
+    @Operation(description = "Values(=Row) 조회 by Column")
+    @GetMapping("/columns")
+    public Map<String, List<String>> getByColumns(@RequestParam(name = "columns") List<Long> columnsIds) {
+        return queryValueService.getByColumns(columnsIds);
+    }
 }
