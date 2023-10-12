@@ -6,6 +6,7 @@ import com.ohgimduir.jaray.database.application.command.request.CreateColumnRequ
 import com.ohgimduir.jaray.database.domain.entity.Column;
 import com.ohgimduir.jaray.database.domain.repository.ColumnRepository;
 import com.ohgimduir.jaray.database.domain.repository.ValueRepository;
+
 import lombok.RequiredArgsConstructor;
 
 @CommandService
@@ -25,7 +26,7 @@ public class CommandColumnService {
                 .name(request.name())
                 .type(request.type())
                 .tableId(tableId)
-                .build()).getId();
+                .build());
     }
 
 }
