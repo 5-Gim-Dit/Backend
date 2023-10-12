@@ -36,7 +36,5 @@ app:
   jwt:
     access-key: ${JWT_ACCESS_KEY}
     access-expire: ${JWT_ACCESS_EXPIRE}
-  clova:
-    name: ${CLOVA_NAME}
-    client-id: ${CLOVA_CLIENT_ID}
-    client-secret: ${CLOVA_CLIENT_SECRET}
+  advisor:
+    key: ${CHAT_GPT_API}
