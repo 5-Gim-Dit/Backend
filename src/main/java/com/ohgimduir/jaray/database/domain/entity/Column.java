@@ -33,4 +33,10 @@ public class Column {
         this.type = type;
         this.tableId = tableId;
     }
+
+    public void update(String name, ColumnType type) {
+        this.name = name;
+        this.type = type;
+    }
+
 }

@@ -24,4 +24,9 @@ public class ColumnController {
         commandColumnService.create(tableId, request);
     }
 
+    @PutMapping("/{columnId}")
+    public void update(@PathVariable long columnId, @RequestBody CreateColumnRequest request) {
+        commandColumnService.update(columnId, request);
+    }
+
 }

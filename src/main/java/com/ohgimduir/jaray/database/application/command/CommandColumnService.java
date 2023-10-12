@@ -4,6 +4,7 @@ import com.ohgimduir.jaray.common.annotations.CommandService;
 
 import com.ohgimduir.jaray.database.application.command.request.CreateColumnRequest;
 import com.ohgimduir.jaray.database.domain.entity.Column;
+import com.ohgimduir.jaray.database.domain.exception.ColumnNotFoundException;
 import com.ohgimduir.jaray.database.domain.repository.ColumnRepository;
 import com.ohgimduir.jaray.database.domain.repository.ValueRepository;
 
@@ -27,6 +28,13 @@ public class CommandColumnService {
                 .type(request.type())
                 .tableId(tableId)
                 .build());
+    }
+
+    public void update(long columnId, CreateColumnRequest request) {
+        Column column = columnRepository.findById(columnId)
+                .orElseThrow(() -> ColumnNotFoundException.EXCEPTION);
+
+        column.update(request.name(), request.type());
     }
 
 }

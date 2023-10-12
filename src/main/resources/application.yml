@@ -23,7 +23,7 @@ spring:
               - profile_nickname
               - profile_image
             authorization-grant-type: authorization_code
-            redirect-uri: https://port-0-backend-12fhqa2blnm78fgt.sel5.cloudtype.app/login/oauth2/code/kakao
+            redirect-uri: http://localhost:8080/login/oauth2/code/kakao #https://port-0-backend-12fhqa2blnm78fgt.sel5.cloudtype.app/login/oauth2/code/kakao
             client-authentication-method: client_secret_post
         provider:
           kakao:
