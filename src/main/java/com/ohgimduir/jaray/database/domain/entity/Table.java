@@ -2,7 +2,10 @@ package com.ohgimduir.jaray.database.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.util.Assert;
+
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -17,6 +20,9 @@ public class Table {
     private String name;
 
     private Long databaseId;
+
+    @CreatedDate
+    private LocalDate createDate;
 
     @Builder(builderClassName = "ExceptIdBuilder", builderMethodName = "ExceptIdBuilder")
     public Table(String name, Long databaseId) {
