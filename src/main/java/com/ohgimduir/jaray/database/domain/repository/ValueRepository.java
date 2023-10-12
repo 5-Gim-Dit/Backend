@@ -10,4 +10,6 @@ public interface ValueRepository extends JpaRepository<Value, Long> {
     List<Value> findByColumnId(long columnId);
 
     void deleteByColumnId(long columnId);
+
+    List<Value> findByColumnIdAndValue(long columnId, String value);
 }

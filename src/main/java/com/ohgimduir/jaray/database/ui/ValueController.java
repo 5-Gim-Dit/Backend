@@ -31,4 +31,9 @@ public class ValueController {
         return queryValueService.getAll(tableId);
     }
 
+    @Operation(description = "Values(=Row) 조회 by Value")
+    @GetMapping("/{columnId}")
+    public Map<String, List<String>> getByValue(@PathVariable long columnId, @RequestParam(name = "value") String value) {
+        return queryValueService.getByValue(columnId, value);
+    }
 }
