@@ -52,7 +52,7 @@ public class OAuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
         final String accessToken = jwtHelper.generateAccessToken(socialId);
 
-        return UriComponentsBuilder.fromUriString("http://localhost:3000/callback")
+        return UriComponentsBuilder.fromUriString("http://localhost:5173/callback")
                 .queryParam("accessToken", accessToken)
                 .build().toUriString();
     }

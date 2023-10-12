@@ -1,7 +1,9 @@
 package com.ohgimduir.jaray.database.ui;
 
+import com.ohgimduir.jaray.common.response.CommonResponse;
 import com.ohgimduir.jaray.database.application.command.CommandValueService;
 import com.ohgimduir.jaray.database.application.query.QueryValueService;
+import com.ohgimduir.jaray.database.application.query.response.RowsResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -26,20 +28,20 @@ public class ValueController {
     }
 
     @Operation(description = "Values(=Row) 조회 by Table")
-    @GetMapping("/{tableId}")
-    public Map<String, List<String>> getAll(@PathVariable long tableId) {
+    @GetMapping("/by/{tableId}")
+    public RowsResponse getAll(@PathVariable long tableId) {
         return queryValueService.getAll(tableId);
     }
 
     @Operation(description = "Values(=Row) 조회 by Value")
     @GetMapping("/{columnId}")
-    public Map<String, List<String>> getByValue(@PathVariable long columnId, @RequestParam(name = "value") String value) {
+    public RowsResponse getByValue(@PathVariable long columnId, @RequestParam(name = "value") String value) {
         return queryValueService.getByValue(columnId, value);
     }
   
     @Operation(description = "Values(=Row) 조회 by Column")
     @GetMapping("/columns")
-    public Map<String, List<String>> getByColumns(@RequestParam(name = "columns") List<Long> columnsIds) {
+    public RowsResponse getByColumns(@RequestParam(name = "columns") List<Long> columnsIds) {
         return queryValueService.getByColumns(columnsIds);
     }
 
