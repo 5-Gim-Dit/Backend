@@ -4,6 +4,7 @@ import com.ohgimduir.jaray.database.application.command.CommandColumnService;
 import com.ohgimduir.jaray.database.application.command.request.CreateColumnRequest;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @Tag(name = "Column API")
@@ -20,6 +21,7 @@ public class ColumnController {
     }
 
     @PostMapping("/by/{tableId}")
+    @ResponseStatus(HttpStatus.CREATED)
     public void create(@PathVariable long tableId, @RequestBody CreateColumnRequest request) {
         commandColumnService.create(tableId, request);
     }

@@ -36,4 +36,5 @@ public class ValueController {
     public Map<String, List<String>> getByValue(@PathVariable long columnId, @RequestParam(name = "value") String value) {
         return queryValueService.getByValue(columnId, value);
     }
+
 }
