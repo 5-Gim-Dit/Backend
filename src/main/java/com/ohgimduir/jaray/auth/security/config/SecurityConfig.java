@@ -1,5 +1,6 @@
 package com.ohgimduir.jaray.auth.security.config;
 
+import com.ohgimduir.jaray.auth.exception.filter.ExceptionFilter;
 import com.ohgimduir.jaray.auth.jwt.filter.JwtExceptionFilter;
 import com.ohgimduir.jaray.auth.jwt.filter.JwtFilter;
 import com.ohgimduir.jaray.auth.security.oauth.handler.OAuthFailureHandler;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -28,6 +30,7 @@ public class SecurityConfig {
     private final OAuthMemberService oAuthMemberService;
     private final JwtFilter jwtFilter;
     private final JwtExceptionFilter jwtExceptionFilter;
+    private final ExceptionFilter exceptionFilter;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -36,6 +39,7 @@ public class SecurityConfig {
                 .cors()
                 .and()
                 .csrf().disable()
+                .addFilterBefore(exceptionFilter, OAuth2LoginAuthenticationFilter.class)
                 .addFilterAfter(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(jwtExceptionFilter, JwtFilter.class)
 
