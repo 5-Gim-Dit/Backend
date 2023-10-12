@@ -1,5 +1,6 @@
 package com.ohgimduir.jaray.database.ui;
 
+import com.ohgimduir.jaray.common.response.CommonResponse;
 import com.ohgimduir.jaray.database.application.command.CommandDatabaseService;
 import com.ohgimduir.jaray.database.application.command.request.CreateDatabaseRequest;
 import com.ohgimduir.jaray.database.application.query.QueryDatabaseService;
@@ -30,7 +31,7 @@ public class DatabaseController {
 
     @Operation(description = "내 Database 조회")
     @GetMapping("/my")
-    public List<Database> getMy() {
+    public CommonResponse<List<Database>> getMy() {
         return queryDatabaseService.getMy();
     }
 

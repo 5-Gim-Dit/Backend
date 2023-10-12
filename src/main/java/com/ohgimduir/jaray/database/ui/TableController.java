@@ -1,5 +1,6 @@
 package com.ohgimduir.jaray.database.ui;
 
+import com.ohgimduir.jaray.common.response.CommonResponse;
 import com.ohgimduir.jaray.database.application.command.CommandTableService;
 import com.ohgimduir.jaray.database.application.command.request.CreateTableRequest;
 import com.ohgimduir.jaray.database.application.query.QueryTableService;
@@ -37,7 +38,7 @@ public class TableController {
 
     @Operation(description = "Table 조회 by Database")
     @GetMapping("/by/{databaseId}")
-    public List<Table> getByDatabase(@PathVariable long databaseId) {
+    public CommonResponse<List<Table>> getByDatabase(@PathVariable long databaseId) {
         return queryTableService.getByDatabase(databaseId);
     }
 

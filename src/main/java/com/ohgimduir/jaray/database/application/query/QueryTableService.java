@@ -1,6 +1,7 @@
 package com.ohgimduir.jaray.database.application.query;
 
 import com.ohgimduir.jaray.common.annotations.QueryService;
+import com.ohgimduir.jaray.common.response.CommonResponse;
 import com.ohgimduir.jaray.database.application.query.response.TableResponse;
 import com.ohgimduir.jaray.database.domain.entity.Column;
 import com.ohgimduir.jaray.database.domain.entity.Table;
@@ -27,8 +28,8 @@ public class QueryTableService {
         return new TableResponse(table, columns);
     }
 
-    public List<Table> getByDatabase(long databaseId) {
-        return tableRepository.findByDatabaseId(databaseId);
+    public CommonResponse<List<Table>> getByDatabase(long databaseId) {
+        return new CommonResponse<>(tableRepository.findByDatabaseId(databaseId));
     }
 
 }
