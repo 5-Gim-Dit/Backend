@@ -2,9 +2,7 @@ package com.ohgimduir.jaray.database.application.query;
 
 import com.ohgimduir.jaray.common.annotations.QueryService;
 import com.ohgimduir.jaray.database.domain.entity.Column;
-import com.ohgimduir.jaray.database.domain.entity.Table;
 import com.ohgimduir.jaray.database.domain.entity.Value;
-import com.ohgimduir.jaray.database.domain.exception.TableNotFoundException;
 import com.ohgimduir.jaray.database.domain.repository.ColumnRepository;
 import com.ohgimduir.jaray.database.domain.repository.TableRepository;
 import com.ohgimduir.jaray.database.domain.repository.ValueRepository;
@@ -86,4 +84,5 @@ public class QueryValueService {
 
         return response;
     }
+
 }
