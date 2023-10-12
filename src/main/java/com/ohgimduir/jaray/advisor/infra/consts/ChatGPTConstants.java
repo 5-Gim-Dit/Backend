@@ -1,9 +1,9 @@
-package com.ohgimduir.jaray.advisor.infra;
+package com.ohgimduir.jaray.advisor.infra.consts;
 
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ChatGPTConfig {
+public class ChatGPTConstants {
 
     public static final String AUTHORIZATION = "Authorization";
     public static final String BEARER = "Bearer ";

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Data
 @Configuration
 @ConfigurationProperties("app.advisor")
-public class ChatGPTProperty {
+public class ChatGPTProperties {
 
     private String key;
 }

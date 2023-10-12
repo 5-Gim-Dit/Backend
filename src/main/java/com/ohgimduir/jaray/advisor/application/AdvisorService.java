@@ -4,8 +4,8 @@ import com.ohgimduir.jaray.advisor.application.request.ChatGPTQuery;
 import com.ohgimduir.jaray.advisor.application.response.ChatGPTMessage;
 import com.ohgimduir.jaray.advisor.application.response.ChatGptResponse;
 import com.ohgimduir.jaray.advisor.application.response.QuestionRequest;
-import com.ohgimduir.jaray.advisor.infra.ChatGPTConfig;
-import com.ohgimduir.jaray.advisor.infra.property.ChatGPTProperty;
+import com.ohgimduir.jaray.advisor.infra.consts.ChatGPTConstants;
+import com.ohgimduir.jaray.advisor.infra.property.ChatGPTProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -23,30 +23,29 @@ import java.util.List;
 public class AdvisorService {
 
     private final RestTemplate restTemplate;
-    private final ChatGPTProperty chatGPTProperty;
+    private final ChatGPTProperties chatGPTProperties;
 
     public HttpEntity<ChatGPTQuery> buildHttpEntity(ChatGPTQuery chatGptRequest){
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.setContentType(MediaType.parseMediaType(ChatGPTConfig.MEDIA_TYPE));
-        httpHeaders.add(ChatGPTConfig.AUTHORIZATION, ChatGPTConfig.BEARER + chatGPTProperty.getKey());
+        httpHeaders.setContentType(MediaType.parseMediaType(ChatGPTConstants.MEDIA_TYPE));
+        httpHeaders.add(ChatGPTConstants.AUTHORIZATION, ChatGPTConstants.BEARER + chatGPTProperties.getKey());
         return new HttpEntity<>(chatGptRequest, httpHeaders);
     }
 
     public ChatGptResponse getQueryAnswer(QuestionRequest request) {
         List<ChatGPTMessage> messages = new ArrayList<>();
         messages.add(ChatGPTMessage.builder()
-                .role(ChatGPTConfig.ROLE)
+                .role(ChatGPTConstants.ROLE)
                 .content(request.getQuestion())
                 .build());
         return this.getResponse(
                 this.buildHttpEntity(
                         new ChatGPTQuery(
-                                ChatGPTConfig.CHAT_MODEL,
-                                ChatGPTConfig.MAX_TOKEN,
-                                ChatGPTConfig.TEMPERATURE,
-                                ChatGPTConfig.STREAM,
+                                ChatGPTConstants.CHAT_MODEL,
+                                ChatGPTConstants.MAX_TOKEN,
+                                ChatGPTConstants.TEMPERATURE,
+                                ChatGPTConstants.STREAM,
                                 messages
-                                //ChatGptConfig.TOP_P
                         )
                 )
         );
@@ -61,7 +60,7 @@ public class AdvisorService {
         restTemplate.setRequestFactory(requestFactory);
 
         ResponseEntity<ChatGptResponse> responseEntity = restTemplate.postForEntity(
-                ChatGPTConfig.CHAT_URL,
+                ChatGPTConstants.CHAT_URL,
                 chatGptRequestHttpEntity,
                 ChatGptResponse.class);
 

@@ -1,4 +1,4 @@
-package com.ohgimduir.jaray.advisor.infra;
+package com.ohgimduir.jaray.advisor.infra.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
